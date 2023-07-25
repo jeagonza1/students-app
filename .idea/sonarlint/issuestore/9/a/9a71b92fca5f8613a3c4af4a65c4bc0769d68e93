@@ -1,0 +1,7 @@
+
+o
+java:S22933"YReplace the type specification in this constructor call with the diamond operator ("<>").(£´ºù
+l
+java:S1450"QRemove the "id" field and declare it as a local variable in the relevant methods.(þÓî«þÿÿÿÿ
+A
+java:S1068"&Remove this unused "id" private field.(þÓî«þÿÿÿÿ
