@@ -1,8 +1,11 @@
 package com.example.service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import com.example.request.CreateLogEmailRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +29,10 @@ public class StudentService {
 	
 	@Autowired
 	StudentRepository studentRepository;
+
+	@Autowired
+	LogEmailService logEmailService;
+
 	private Long id;
 
 	public Student getStudentById (long id) {
@@ -66,7 +73,10 @@ public class StudentService {
 		}
 		
 		student.setLearningSubjects(subjectsList);
-		
+		CreateLogEmailRequest createLogEmailRequest = new CreateLogEmailRequest();
+		createLogEmailRequest.setFullName(student.getFirstName()+" "+student.getLastName());
+		createLogEmailRequest.setEmail(student.getEmail());
+		logEmailService.createLogEmail(createLogEmailRequest);
 		return student;
 	}
 
@@ -78,6 +88,7 @@ public class StudentService {
 		for(Subject sub:subjs){
 			subjectRepository.deleteById(sub.getId());
 		}
+
 		studentRepository.deleteById(id);
 		addressRepository.deleteById(address.getId());
 		return true;

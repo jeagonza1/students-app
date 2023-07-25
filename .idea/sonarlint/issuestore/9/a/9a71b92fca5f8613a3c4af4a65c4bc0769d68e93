@@ -1,7 +1,11 @@
 
 o
-java:S22933"YReplace the type specification in this constructor call with the diamond operator ("<>").(£´ºù
+java:S2293:"YReplace the type specification in this constructor call with the diamond operator ("<>").(£´ºù
 l
-java:S1450"QRemove the "id" field and declare it as a local variable in the relevant methods.(şÓî«şÿÿÿÿ
+java:S1450$"QRemove the "id" field and declare it as a local variable in the relevant methods.(şÓî«şÿÿÿÿ
+T
+java:S1128"7Remove this unused import 'java.text.SimpleDateFormat'.(ú¡ÙÛ8úøÙÉ˜1
+H
+java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8úøÙÉ˜1
 A
-java:S1068"&Remove this unused "id" private field.(şÓî«şÿÿÿÿ
+java:S1068$"&Remove this unused "id" private field.(şÓî«şÿÿÿÿ

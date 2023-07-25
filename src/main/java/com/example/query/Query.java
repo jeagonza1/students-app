@@ -12,8 +12,8 @@ import com.example.service.StudentService;
 
 import graphql.kickstart.tools.GraphQLQueryResolver;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Component
@@ -29,15 +29,12 @@ public class Query implements GraphQLQueryResolver {
 		return new StudentResponse(studentService.getStudentById(id));
 	}
 
-	public List<StudentResponse> getStudents () {
-		LOG.info("List all of Stdudents...");
+	public List<StudentResponse> getStudents() {
+		LOG.info("List all students...");
 		List<Student> students = studentService.getStudents();
-		List<StudentResponse> respon = new ArrayList<>() ;
 
-		for(Student student:students){
-			StudentResponse studentResponse = new StudentResponse(student);
-			respon.add(studentResponse);
-		}
-		return respon;
+		return students.stream()
+				.map(StudentResponse::new) // Convert each Student to a StudentResponse using the constructor reference
+				.collect(Collectors.toList()); // Collect the StudentResponse objects into a list
 	}
 }

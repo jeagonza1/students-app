@@ -10,6 +10,7 @@
         <module name="graphql-exercise" />
         <module name="graphql-api-email" />
         <module name="GraphQL-With-Spring-Boot" />
+        <module name="graphql-api-student" />
       </profile>
     </annotationProcessing>
   </component>
