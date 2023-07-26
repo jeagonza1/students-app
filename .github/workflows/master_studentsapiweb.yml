@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://studentsapp.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_91fd7672602c46a5bfc000a4df82c50f }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_cc01c1e772cd457293348512b6cacc12 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_f5ae607a518c4f93923c1f319fbd891f }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_796d2020f08148fda4d85ea63cdc93d7 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: studentsapp.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_91fd7672602c46a5bfc000a4df82c50f }}/studentsappapi:${{ github.sha }}
+        tags: studentsapp.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_f5ae607a518c4f93923c1f319fbd891f }}/studentsappapi:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'studentsapiweb'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_e237f8abf4034383925901bf6a27799d }}
-        images: 'studentsapp.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_91fd7672602c46a5bfc000a4df82c50f }}/studentsappapi:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_402a73d0283243d1928e6fe601e81337 }}
+        images: 'studentsapp.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_f5ae607a518c4f93923c1f319fbd891f }}/studentsappapi:${{ github.sha }}'
